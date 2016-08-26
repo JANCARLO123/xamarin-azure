@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AzureApp"
+             xmlns:controls="clr-namespace:AzureApp.Controls;assembly=AzureApp"
+             x:Class="AzureApp.Pages.MainPage" Title="Registration">
+  <ContentPage.Content>
+    <StackLayout VerticalOptions="Start" Padding="10,10,10,10">
+      <Entry Placeholder="Full Name" Text="{Binding Fullname}" PlaceholderColor="Gray"></Entry>
+      <controls:BindablePicker ItemsSource="{Binding Gender}" SelectedItem="{Binding SelectedGender}" HorizontalOptions="FillAndExpand">
+      </controls:BindablePicker>
+      <Entry Placeholder="Age" Text="{Binding Age}" PlaceholderColor="Gray" Keyboard="Numeric"></Entry>
+      <Entry Placeholder="Weight in pounds" Text="{Binding Weight}" PlaceholderColor="Gray" Keyboard="Numeric"></Entry>
+      <TableView>
+        <TableRoot>
+          <TableSection>
+            <ImageCell Text="Take a Photo" ImageSource="{Binding Picture}" Command="{Binding TakePhotoCommand}">
+            </ImageCell>
+          </TableSection>
+        </TableRoot>
+      </TableView>
+      <ActivityIndicator IsRunning="{Binding IsRunning}" IsEnabled="True" IsVisible="True" ></ActivityIndicator>
+      <Button Text="Start" HorizontalOptions="CenterAndExpand" Command="{Binding NextPageCommand}" IsEnabled="{Binding IsNextEnabled}"></Button>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>
